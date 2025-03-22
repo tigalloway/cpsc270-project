@@ -7,23 +7,26 @@ import {
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Image } from 'react-native';
 import bell from '../assets/bell.png';
+import check from '../assets/circle-with-check-symbol.png'
 import newspaper from '../assets/newspaper.png';
+import homeIcon from '../assets/homeicon.png'
 import { Home } from './screens/Home';
 import { Profile } from './screens/Profile';
 import { Settings } from './screens/Settings';
 import { Updates } from './screens/Updates';
 import { NotFound } from './screens/NotFound';
+import { CompletedHikes } from './screens/CompletedHikes';
 
 const HomeTabs = createBottomTabNavigator({
   screens: {
     Home: {
       screen: Home,
       options: {
-        title: 'Feed',
+        title: 'Home',
         tabBarIcon: ({ color, size }) => (
           <Image
-            source={newspaper}
-            tintColor={color}
+            source={homeIcon}
+            tintColor="green"
             style={{
               width: size,
               height: size,
@@ -47,6 +50,23 @@ const HomeTabs = createBottomTabNavigator({
         ),
       },
     },
+    CompletedHikes:{
+      screen: CompletedHikes,
+      options: {
+        title: 'Completed Hikes',
+        
+        tabBarIcon: () =>(
+          <Image
+            source={check}
+            tintColor="green"
+            style={{
+              width: 20, 
+              height: 20,
+            }}
+            />
+        )
+      }
+    }
   },
 });
 
