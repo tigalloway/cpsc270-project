@@ -13,7 +13,6 @@ export function Home() {
         muted={true}
         resizeMode="cover"
         repeat
-        videoRef.current.seek(0.034);
         playInBackground={true} 
         playWhenInactive={true}  
         rate={1.0}
