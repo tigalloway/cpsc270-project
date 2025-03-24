@@ -12,7 +12,8 @@ export function Home() {
         style={{...styles.backgroundVideo, width, height}}
         muted={true}
         resizeMode="cover"
-        repeat 
+        repeat
+        videoRef.current.seek(0.034);
         playInBackground={true} 
         playWhenInactive={true}  
         rate={1.0}
