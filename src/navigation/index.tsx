@@ -6,24 +6,41 @@ import {
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Image } from 'react-native';
-import bell from '../assets/bell.png';
-import newspaper from '../assets/newspaper.png';
+import  hike from '../assets/hikes-icon.png'
+import check from '../assets/circle-with-check-symbol.png'
+import tree from '../assets/tree-icon.png'
+import savedicon from '../assets/savedicon.png'
 import { Home } from './screens/Home';
-import { Profile } from './screens/Profile';
-import { Settings } from './screens/Settings';
-import { Updates } from './screens/Updates';
-import { NotFound } from './screens/NotFound';
+import { SavedHikes } from './screens/SavedHikes';
+import { Profile } from './screens/Profile'; //remove
+import { Settings } from './screens/Settings'; //remove
+import { Hikes } from './screens/Hikes';
+import { NotFound } from './screens/NotFound'; //remove
+import { CompletedHikes } from './screens/CompletedHikes';
 
 const HomeTabs = createBottomTabNavigator({
+  screenOptions:{
+    tabBarPosition: "bottom",
+    headerStyle:{  
+      backgroundColor: 'rgb(13 48 6)'
+    },
+    headerTintColor: "orange",
+    tabBarStyle: {
+      backgroundColor: 'rgb(13 48 6)'
+    },
+    tabBarLabelPosition:'below-icon',
+    tabBarActiveTintColor: 'orange'
+  },
   screens: {
+    
     Home: {
       screen: Home,
       options: {
-        title: 'Feed',
-        tabBarIcon: ({ color, size }) => (
+        title: 'Home',
+        tabBarIcon: ({ size }) => (
           <Image
-            source={newspaper}
-            tintColor={color}
+            source={tree}
+            tintColor= 'rgb(46 122 34)'
             style={{
               width: size,
               height: size,
@@ -32,13 +49,46 @@ const HomeTabs = createBottomTabNavigator({
         ),
       },
     },
-    Updates: {
-      screen: Updates,
+    Hikes: {
+      screen: Hikes,
       options: {
-        tabBarIcon: ({ color, size }) => (
+        tabBarIcon: ({ size }) => (
           <Image
-            source={bell}
-            tintColor={color}
+            source={hike}
+            tintColor='rgb(46 122 34)'
+            style={{
+              width: size,
+              height: size,
+            }}
+          />
+        ),
+      },
+    },
+    CompletedHikes:{
+      screen: CompletedHikes,
+      options: {
+        title: 'Completed Hikes',
+        
+        tabBarIcon: () =>(
+          <Image
+            source={check}
+            tintColor='rgb(46 122 34)'
+            style={{
+              width: 20, 
+              height: 20,
+            }}
+            />
+        )
+      }
+    },
+    SavedHikes:{
+      screen: SavedHikes,
+      options: {
+        title: 'Saved Hikes',
+        tabBarIcon: ({ size }) => (
+          <Image
+            source={savedicon}
+            tintColor='rgb(46 122 34)'
             style={{
               width: size,
               height: size,
@@ -50,6 +100,8 @@ const HomeTabs = createBottomTabNavigator({
   },
 });
 
+
+//need to edit root stack still
 const RootStack = createNativeStackNavigator({
   screens: {
     HomeTabs: {
@@ -58,29 +110,32 @@ const RootStack = createNativeStackNavigator({
         title: 'Home',
         headerShown: false,
       },
-    },
-    Profile: {
-      screen: Profile,
-      linking: {
-        path: ':user(@[a-zA-Z0-9-_]+)',
-        parse: {
-          user: (value) => value.replace(/^@/, ''),
-        },
-        stringify: {
-          user: (value) => `@${value}`,
-        },
-      },
-    },
-    Settings: {
-      screen: Settings,
-      options: ({ navigation }) => ({
-        presentation: 'modal',
-        headerRight: () => (
-          <HeaderButton onPress={navigation.goBack}>
-            <Text>Close</Text>
-          </HeaderButton>
-        ),
-      }),
+    // },
+    // Profile: {
+    //   screen: Profile,
+    //   linking: {
+    //     path: ':user(@[a-zA-Z0-9-_]+)',
+    //     parse: {
+    //       user: (value) => value.replace(/^@/, ''),
+    //     },
+    //     stringify: {
+    //       user: (value) => `@${value}`,
+    //     },
+    //   },
+    // },
+    // //Hikes: {
+    //   //screen: Hikes,
+    // //},
+    // Settings: {
+    //   screen: Settings,
+    //   options: ({ navigation }) => ({
+    //     presentation: 'modal',
+    //     headerRight: () => (
+    //       <HeaderButton onPress={navigation.goBack}>
+    //         <Text>Close</Text>
+    //       </HeaderButton>
+    //     ),
+    //   }),
     },
     NotFound: {
       screen: NotFound,
