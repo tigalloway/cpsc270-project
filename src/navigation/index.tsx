@@ -19,7 +19,20 @@ import { NotFound } from './screens/NotFound'; //remove
 import { CompletedHikes } from './screens/CompletedHikes';
 
 const HomeTabs = createBottomTabNavigator({
+  screenOptions:{
+    tabBarPosition: "bottom",
+    headerStyle:{  
+      backgroundColor: 'rgb(13 48 6)'
+    },
+    headerTintColor: "orange",
+    tabBarStyle: {
+      backgroundColor: 'rgb(13 48 6)'
+    },
+    tabBarLabelPosition:'below-icon',
+    tabBarActiveTintColor: 'orange'
+  },
   screens: {
+    
     Home: {
       screen: Home,
       options: {
@@ -27,7 +40,7 @@ const HomeTabs = createBottomTabNavigator({
         tabBarIcon: ({ size }) => (
           <Image
             source={tree}
-            tintColor="green"
+            tintColor= 'rgb(46 122 34)'
             style={{
               width: size,
               height: size,
@@ -42,7 +55,7 @@ const HomeTabs = createBottomTabNavigator({
         tabBarIcon: ({ size }) => (
           <Image
             source={hike}
-            tintColor="green"
+            tintColor='rgb(46 122 34)'
             style={{
               width: size,
               height: size,
@@ -59,7 +72,7 @@ const HomeTabs = createBottomTabNavigator({
         tabBarIcon: () =>(
           <Image
             source={check}
-            tintColor="green"
+            tintColor='rgb(46 122 34)'
             style={{
               width: 20, 
               height: 20,
@@ -75,7 +88,7 @@ const HomeTabs = createBottomTabNavigator({
         tabBarIcon: ({ size }) => (
           <Image
             source={savedicon}
-            tintColor="green"
+            tintColor='rgb(46 122 34)'
             style={{
               width: size,
               height: size,
@@ -87,6 +100,8 @@ const HomeTabs = createBottomTabNavigator({
   },
 });
 
+
+//need to edit root stack still
 const RootStack = createNativeStackNavigator({
   screens: {
     HomeTabs: {
