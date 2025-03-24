@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.cpsc270project"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -30,6 +31,11 @@
         }
       ],
       "react-native-edge-to-edge"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "e760b05e-37a4-4369-b5b6-29671d708e53"
+      }
+    }
   }
 }
