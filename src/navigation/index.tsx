@@ -6,15 +6,16 @@ import {
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Image } from 'react-native';
-import bell from '../assets/bell.png';
+import  hike from '../assets/hikes-icon.png'
 import check from '../assets/circle-with-check-symbol.png'
-import newspaper from '../assets/newspaper.png';
-import homeIcon from '../assets/homeicon.png'
+import tree from '../assets/tree-icon.png'
+import savedicon from '../assets/savedicon.png'
 import { Home } from './screens/Home';
-import { Profile } from './screens/Profile';
-import { Settings } from './screens/Settings';
-import { Updates } from './screens/Updates';
-import { NotFound } from './screens/NotFound';
+import { SavedHikes } from './screens/SavedHikes';
+import { Profile } from './screens/Profile'; //remove
+import { Settings } from './screens/Settings'; //remove
+import { Hikes } from './screens/Hikes';
+import { NotFound } from './screens/NotFound'; //remove
 import { CompletedHikes } from './screens/CompletedHikes';
 
 const HomeTabs = createBottomTabNavigator({
@@ -23,9 +24,9 @@ const HomeTabs = createBottomTabNavigator({
       screen: Home,
       options: {
         title: 'Home',
-        tabBarIcon: ({ color, size }) => (
+        tabBarIcon: ({ size }) => (
           <Image
-            source={homeIcon}
+            source={tree}
             tintColor="green"
             style={{
               width: size,
@@ -35,13 +36,13 @@ const HomeTabs = createBottomTabNavigator({
         ),
       },
     },
-    Updates: {
-      screen: Updates,
+    Hikes: {
+      screen: Hikes,
       options: {
-        tabBarIcon: ({ color, size }) => (
+        tabBarIcon: ({ size }) => (
           <Image
-            source={bell}
-            tintColor={color}
+            source={hike}
+            tintColor="green"
             style={{
               width: size,
               height: size,
@@ -66,7 +67,23 @@ const HomeTabs = createBottomTabNavigator({
             />
         )
       }
-    }
+    },
+    SavedHikes:{
+      screen: SavedHikes,
+      options: {
+        title: 'Saved Hikes',
+        tabBarIcon: ({ size }) => (
+          <Image
+            source={savedicon}
+            tintColor="green"
+            style={{
+              width: size,
+              height: size,
+            }}
+          />
+        ),
+      },
+    },
   },
 });
 
