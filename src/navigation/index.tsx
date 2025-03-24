@@ -110,29 +110,32 @@ const RootStack = createNativeStackNavigator({
         title: 'Home',
         headerShown: false,
       },
-    },
-    Profile: {
-      screen: Profile,
-      linking: {
-        path: ':user(@[a-zA-Z0-9-_]+)',
-        parse: {
-          user: (value) => value.replace(/^@/, ''),
-        },
-        stringify: {
-          user: (value) => `@${value}`,
-        },
-      },
-    },
-    Settings: {
-      screen: Settings,
-      options: ({ navigation }) => ({
-        presentation: 'modal',
-        headerRight: () => (
-          <HeaderButton onPress={navigation.goBack}>
-            <Text>Close</Text>
-          </HeaderButton>
-        ),
-      }),
+    // },
+    // Profile: {
+    //   screen: Profile,
+    //   linking: {
+    //     path: ':user(@[a-zA-Z0-9-_]+)',
+    //     parse: {
+    //       user: (value) => value.replace(/^@/, ''),
+    //     },
+    //     stringify: {
+    //       user: (value) => `@${value}`,
+    //     },
+    //   },
+    // },
+    // //Hikes: {
+    //   //screen: Hikes,
+    // //},
+    // Settings: {
+    //   screen: Settings,
+    //   options: ({ navigation }) => ({
+    //     presentation: 'modal',
+    //     headerRight: () => (
+    //       <HeaderButton onPress={navigation.goBack}>
+    //         <Text>Close</Text>
+    //       </HeaderButton>
+    //     ),
+    //   }),
     },
     NotFound: {
       screen: NotFound,
