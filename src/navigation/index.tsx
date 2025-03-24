@@ -1,10 +1,14 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { HeaderButton, Text } from '@react-navigation/elements';
 import {
   createStaticNavigation,
   StaticParamList,
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Home } from './screens/Home';
+
+
+const RootStack = createNativeStackNavigator({
+  
 import { Image } from 'react-native';
 import  hike from '../assets/hikes-icon.png'
 import check from '../assets/circle-with-check-symbol.png'
@@ -36,6 +40,7 @@ const HomeTabs = createBottomTabNavigator({
     Home: {
       screen: Home,
       options: {
+        headerShown: false, 
         title: 'Home',
         tabBarIcon: ({ size }) => (
           <Image
@@ -98,8 +103,11 @@ const HomeTabs = createBottomTabNavigator({
       },
     },
   },
+  options: {
+    headerShown: false,
+    tabBarStyle: {display: 'none'}
+  }
 });
-
 
 //need to edit root stack still
 const RootStack = createNativeStackNavigator({

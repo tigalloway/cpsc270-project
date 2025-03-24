@@ -19,13 +19,26 @@ export function Home() {
         Click 'Get Started' to explore beautiful hikes in the Roanoke Valley.
       </Text>
       <TouchableOpacity style={styles.button} onPress = {()=>navigation.navigate("Hikes")}><Text>Get Started</Text></TouchableOpacity>
+       <Video
+        source={{uri: 'https://videos.pexels.com/video-files/3121327/3121327-uhd_2560_1440_24fps.mp4'}}
+        style={{...styles.backgroundVideo, width, height}}
+        muted={true}
+        resizeMode="cover"
+        repeat
+        playInBackground={true} 
+        playWhenInactive={true}  
+        rate={1.0}
+      />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+      const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'black',
     justifyContent: 'center', // Center vertically
     alignItems: 'center', // Center horizontally
     padding: 20,
@@ -49,6 +62,10 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
-    
-  },
+      },
+   backgroundVideo: {
+    ...StyleSheet.absoluteFillObject,
+    position: 'absolute',
+  }
+
 });
