@@ -1,15 +1,22 @@
 import { Button, Text } from '@react-navigation/elements';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, useWindowDimensions } from 'react-native';
+import Video from "react-native-video";
 
 export function Home() {
+  const { width, height } = useWindowDimensions();
+
   return (
     <View style={styles.container}>
-      <Text>Home Screen</Text>
-      <Text>Open up 'src/App.tsx' to start working on your app!</Text>
-      <Button screen="Profile" params={{ user: 'jane' }}>
-        Go to Profile
-      </Button>
-      <Button screen="Settings">Go to Settings</Button>
+      <Video
+        source={{uri: 'https://videos.pexels.com/video-files/3121327/3121327-uhd_2560_1440_24fps.mp4'}}
+        style={{...styles.backgroundVideo, width, height}}
+        muted={true}
+        resizeMode="cover"
+        repeat 
+        playInBackground={true} 
+        playWhenInactive={true}  
+        rate={1.0}
+      />
     </View>
   );
 }
@@ -19,6 +26,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 10,
+    backgroundColor: 'black',
   },
+  backgroundVideo: {
+    ...StyleSheet.absoluteFillObject,
+    position: 'absolute',
+  }
 });
