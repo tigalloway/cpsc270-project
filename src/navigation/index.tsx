@@ -1,14 +1,3 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import {
-  createStaticNavigation,
-  StaticParamList,
-} from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Home } from './screens/Home';
-
-
-const RootStack = createNativeStackNavigator({
-  
 import { Image } from 'react-native';
 import  hike from '../assets/hikes-icon.png'
 import check from '../assets/circle-with-check-symbol.png'
@@ -16,11 +5,10 @@ import tree from '../assets/tree-icon.png'
 import savedicon from '../assets/savedicon.png'
 import { Home } from './screens/Home';
 import { SavedHikes } from './screens/SavedHikes';
-import { Profile } from './screens/Profile'; //remove
-import { Settings } from './screens/Settings'; //remove
 import { Hikes } from './screens/Hikes';
-import { NotFound } from './screens/NotFound'; //remove
 import { CompletedHikes } from './screens/CompletedHikes';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStaticNavigation, StaticParamList } from '@react-navigation/native';
 
 const HomeTabs = createBottomTabNavigator({
   screenOptions:{
@@ -144,17 +132,8 @@ const RootStack = createNativeStackNavigator({
     //       </HeaderButton>
     //     ),
     //   }),
-    },
-    NotFound: {
-      screen: NotFound,
-      options: {
-        title: '404',
-      },
-      linking: {
-        path: '*',
-      },
-    },
-  },
+    }
+  }
 });
 
 export const Navigation = createStaticNavigation(RootStack);
@@ -166,3 +145,5 @@ declare global {
     interface RootParamList extends RootStackParamList {}
   }
 }
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
