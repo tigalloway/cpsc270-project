@@ -32,11 +32,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@react-native-community/cli": "latest",
     "@types/react": "~18.3.12",
     "@types/react-navigation": "^3.0.8",
     "expo-module-scripts": "^4.0.4",
-    "typescript": "^5.7.2",
-    "@react-native-community/cli": "latest"
+    "typescript": "^5.7.2"
   },
   "private": true
 }
