@@ -1,27 +1,17 @@
 import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, Linking } from 'react-native';
+
+import hikesData from './assets/hikes_data.json'; 
 
 interface Hike {
   id: number;
   name: string;
-  image: string;
-  description: string;
-  distance: string;
   difficulty: string;
+  image_url: string;
+  distance: string;
+  location_url: string;
+  description: string;
 }
-
-const hikes: Hike[] = [
-  {
-    
-    id: 1,
-    name: 'McAfee Knob',
-    image: 'https://roanokeoutside.com/wp-content/uploads/2015/06/hero-about-1590x510.jpg',
-    description: 'A stunning view along the Appalachian Trail.',
-    distance: '8 miles round trip',
-    difficulty: 'Moderate',
-  },
-];
-
 const HikeList: React.FC = () => {
   const [selectedHike, setSelectedHike] = useState<Hike | null>(null);
 
@@ -31,9 +21,9 @@ const HikeList: React.FC = () => {
         <>
           <Text style={styles.title}>Local Hikes</Text>
           <View style={styles.hikeGrid}>
-            {hikes.map((hike) => (
+            {hikesData.map((hike: Hike) => (
               <TouchableOpacity key={hike.id} style={styles.hikeBox} onPress={() => setSelectedHike(hike)}>
-                <Image source={{ uri: hike.image }} style={styles.hikeImage} />
+                <Image source={{ uri: hike.image_url }} style={styles.hikeImage} />
                 <Text style={styles.hikeName}>{hike.name}</Text>
               </TouchableOpacity>
             ))}
@@ -45,10 +35,15 @@ const HikeList: React.FC = () => {
             <Text style={styles.backButton}>Back to List</Text>
           </TouchableOpacity>
           <Text style={styles.hikeTitle}>{selectedHike.name}</Text>
-          <Image source={{ uri: selectedHike.image }} style={styles.hikeDetailImage} />
+          <Image source={{ uri: selectedHike.image_url }} style={styles.hikeDetailImage} />
           <Text style={styles.hikeDescription}>{selectedHike.description}</Text>
           <Text><Text style={styles.label}>Distance:</Text> {selectedHike.distance}</Text>
           <Text><Text style={styles.label}>Difficulty:</Text> {selectedHike.difficulty}</Text>
+
+          {}
+          <TouchableOpacity onPress={() => Linking.openURL(selectedHike.location_url)}>
+            <Text style={styles.locationLink}>View on Map</Text>
+          </TouchableOpacity>
         </View>
       )}
     </ScrollView>
@@ -112,6 +107,12 @@ const styles = StyleSheet.create({
   },
   label: {
     fontWeight: 'bold',
+  },
+  locationLink: {
+    fontSize: 16,
+    color: '#007BFF',
+    marginTop: 12,
+    textDecorationLine: 'underline',
   },
 });
 
