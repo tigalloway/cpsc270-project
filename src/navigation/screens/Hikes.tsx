@@ -1,10 +1,11 @@
-import { Text } from '@react-navigation/elements';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import HikeList from '../../HikeList';
 
-export function Hikes(){
-    return(
+export function Hikes() {
+    return (
         <View style={styles.container}>
-            <Text>Page that host's hikes and filters them</Text>
+            <HikeList />
         </View>
     );
 }
@@ -12,8 +13,8 @@ export function Hikes(){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      gap: 10,
+      backgroundColor: '#fff',
     },
-  });
+});
+
+export default Hikes;
