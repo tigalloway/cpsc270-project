@@ -1,130 +1,129 @@
 [
-    {
-      "id": 1,
-      "name": "McAfee's Knob",
-      "difficulty": "Advanced",
-      "image_url": "https://res.cloudinary.com/simpleview/image/upload/v1447443774/clients/roanoke/McAfeeKnobHikersSunrise_3f30c373-0678-4265-8133-77a81aff1eeb.jpg",
-      "distance": "8.1  ",
-      "location_url": "https://www.google.com/maps/dir/?api=1&destination=McAfee's+Knob+Trailhead",
-      "description": "With its stunning, 270-degree panoramic views of the surrounding valley and mountains, along with its signature ledge that has become a popular place for photos, McAfee Knob should be included in any trip that includes hiking in Virginia's Blue Ridge."
-    },
-    {
-      "id": 2,
-      "name": "Dragon's Tooth",
-      "difficulty": "Advanced",
-      "image_url": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_437,q_75,w_660/v1/clients/roanoke/Dragon_s_Tooth_Appalachian_Trail_7_c97622bf-d902-42bf-9072-37e6aa7c8a03.jpg",
-      "distance": "12.1",
-      "location_url": "https://www.google.com/maps/search/Dragon%27s+Tooth+Trailhead%2C+Catawba%2C+VA",
-      "description": "Dragon's Tooth is a unique rock formation that rises dramatically from the Appalachian Trail. Its jagged, tooth-like appearance gives the trail its name and provides hikers with an exhilarating destination at the end of their journey."
-    },
-    {
-      "id": 3,
-      "name": "Tinker Cliffs",
-      "difficulty": "Intermediate",
-      "image_url": "https://res.cloudinary.com/simpleview/image/upload/v1695239016/clients/roanoke/Tinker_Cliffs_Appalachian_Trail_Roanoke_VA_Fall_50_cc00c7f3-7953-493b-913a-ff48dd85edf7.jpg",
-      "distance": "17.2  ",
-      "location_url": "https://www.google.com/maps/search/Tinker+Cliffs+Trailhead%2C+Catawba%2C+VA",
-      "description":""
-    },
-    {
-      "id": 4,
-      "name": "Haystack Rock",
-      "difficulty": "Intermediate",
-      "image_url": "https://gohikevirginia.com/wp-content/uploads/2022/06/Hay-Rock-Scenic-Views-Feature-800x445.webp",
-      "distance": "12.0  ",
-      "location_url": "https://www.google.com/maps/search/Haystack+Rock+Trailhead%2C+Roanoke%2C+VA",
-      "description": "The cliffs offer 180-degree panoramic views and a hiking experience that will leave you in awe. In addition to the gorgeous views at the summit, the hike along the way will lead you past unique rock formations, wildflowers, rushing streams, and lush forests."
-    },
-    {
-      "id": 5,
-      "name": "Hoop Hole",
-      "difficulty": "Intermediate",
-      "image_url": "https://www.hikingupward.com/jnf/hoophole/images/fp/full.jpg",
-      "distance": "41.0  ",
-      "location_url": "https://www.google.com/maps/search/Hoop+Hole+Trailhead%2C+Eagle+Rock%2C+VA",
-      "description": "Whether you're a beginner looking to hone your skills or a seasoned rider craving adrenaline-pumping descents, Hoop Hole promises an unforgettable biking experience amidst Virginia's natural beauty."
+  {
+    "id": 1,
+    "name": "McAfee's Knob",
+    "difficulty": "Advanced",
+    "image_url": "https://res.cloudinary.com/simpleview/image/upload/v1447443774/clients/roanoke/McAfeeKnobHikersSunrise_3f30c373-0678-4265-8133-77a81aff1eeb.jpg",
+    "distance": "8.1  ",
+    "location_url": "https://www.google.com/maps/dir/?api=1&destination=McAfee's+Knob+Trailhead",
+    "description": "With its stunning, 270-degree panoramic views of the surrounding valley and mountains, along with its signature ledge that has become a popular place for photos, McAfee Knob should be included in any trip that includes hiking in Virginia's Blue Ridge."
+  },
+  {
+    "id": 2,
+    "name": "Dragon's Tooth",
+    "difficulty": "Advanced",
+    "image_url": "https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,h_437,q_75,w_660/v1/clients/roanoke/Dragon_s_Tooth_Appalachian_Trail_7_c97622bf-d902-42bf-9072-37e6aa7c8a03.jpg",
+    "distance": "12.1",
+    "location_url": "https://www.google.com/maps/search/Dragon%27s+Tooth+Trailhead%2C+Catawba%2C+VA",
+    "description": "Dragon's Tooth is a unique rock formation that rises dramatically from the Appalachian Trail. Its jagged, tooth-like appearance gives the trail its name and provides hikers with an exhilarating destination at the end of their journey."
+  },
+  {
+    "id": 3,
+    "name": "Tinker Cliffs",
+    "difficulty": "Intermediate",
+    "image_url": "https://res.cloudinary.com/simpleview/image/upload/v1695239016/clients/roanoke/Tinker_Cliffs_Appalachian_Trail_Roanoke_VA_Fall_50_cc00c7f3-7953-493b-913a-ff48dd85edf7.jpg",
+    "distance": "17.2  ",
+    "location_url": "https://www.google.com/maps/search/Tinker+Cliffs+Trailhead%2C+Catawba%2C+VA",
+    "description": "The cliffs offer 180-degree panoramic views and a hiking experience that will leave you in awe. In addition to the gorgeous views at the summit, the hike along the way will lead you past unique rock formations, wildflowers, rushing streams, and lush forests."
+  },
+  {
+    "id": 4,
+    "name": "Haystack Rock",
+    "difficulty": "Intermediate",
+    "image_url": "https://gohikevirginia.com/wp-content/uploads/2022/06/Hay-Rock-Scenic-Views-Feature-800x445.webp",
+    "distance": "12.0  ",
+    "location_url": "https://www.google.com/maps/search/Haystack+Rock+Trailhead%2C+Roanoke%2C+VA",
+    "description": "The cliffs offer 180-degree panoramic views and a hiking experience that will leave you in awe. In addition to the gorgeous views at the summit, the hike along the way will lead you past unique rock formations, wildflowers, rushing streams, and lush forests."
+  },
+  {
+    "id": 5,
+    "name": "Hoop Hole",
+    "difficulty": "Intermediate",
+    "image_url": "https://www.hikingupward.com/jnf/hoophole/images/fp/full.jpg",
+    "distance": "41.0  ",
+    "location_url": "https://www.google.com/maps/search/Hoop+Hole+Trailhead%2C+Eagle+Rock%2C+VA",
+    "description": "Whether you're a beginner looking to hone your skills or a seasoned rider craving adrenaline-pumping descents, Hoop Hole promises an unforgettable biking experience amidst Virginia's natural beauty."
 
-    },
-    {
-      "id": 6,
-      "name": "Sharp Top",
-      "difficulty": "Intermediate",
-      "image_url": "https://gohikevirginia.com/wp-content/uploads/2020/10/Sharp-Top-Summit-Abbott-Lake-Views.jpg",
-      "distance": "37.8  ",
-      "location_url": "https://www.google.com/maps/search/Sharp+Top+Trailhead%2C+Bedford%2C+VA",
-      "description": "The Sharp Top Mountain trail is a popular, 3-mile roundtrip hike in the Peaks of Otter area of Virginia, known for its strenuous climb to a summit with 360-degree views, and includes sections of stairs and rockier terrain"
-    },
-    {
-      "id": 7,
-      "name": "Buffalo Mountain",
-      "difficulty": "Intermediate",
-      "image_url": "https://thehoppyhikers.com/wp-content/uploads/2022/03/buffalo077.jpeg",
-      "distance": "58.8  ",
-      "location_url": "https://www.google.com/maps/search/Buffalo+Mountain+Trailhead%2C+Floyd%2C+VA",
-      "description": "Buffalo Mountain, part of the Buffalo Mountain Natural Area Preserve, features a unique ecosystem with sub-alpine vegetation, magnesium-rich soils, and windswept balds, accessible via a steep, moderately graded one-mile trail leading to a peak of 3,971 feet"
-    },
-    {
-      "id": 8,
-      "name": "Murray Run Greenway",
-      "difficulty": "Beginner",
-      "image_url": "https://www.playroanoke.com/wp-content/uploads/2017/02/FishburnParkFallLeaves-288.jpg",
-      "distance": "5.9  ",
-      "location_url": "https://www.google.com/maps/search/Murray+Run+Greenway+Trailhead%2C+Roanoke%2C+VA",
-      "description": "The Murray Run Greenway is a 1.9-mile neighborhood trail in Roanoke, VA, connecting five schools and three parks, featuring a cinder surface trail, commemorative trees, and a bridge with views of a rain garden. "
-    },
-    {
-      "id": 9,
-      "name": "Roaring Run",
-      "difficulty": "Beginner",
-      "image_url": "https://gohikevirginia.com/wp-content/uploads/2020/10/Roaring-Run-Falls-Upper-Overlook-View.jpg",
-      "distance": "39.7  ",
-      "location_url": "https://www.google.com/maps/search/Roaring+Run+Trailhead%2C+Eagle+Rock%2C+VA",
-      "description": "Roaring Run is a popular get-away for escaping the summer heat. It features shady picnic spots, a native trout stream and a 1 ½ -mile scenic loop trail that follows Roaring Run Creek to a cascading waterfall."
-    },
-    {
-      "id": 10,
-      "name": "Pandapas Pond",
-      "difficulty": "Beginner",
-      "image_url": "https://gohikevirginia.com/wp-content/uploads/2020/10/Roaring-Run-Falls-Upper-Overlook-View.jpg",
-      "distance": "39.5   ",
-      "location_url": "https://www.google.com/maps/search/Pandapas+Pond+Trailhead%2C+Blacksburg%2C+VA",
-      "description": "Pandapas Pond offers an 8-acre manmade pond that provides fishing, hiking, flat-water canoeing, and picnicking opportunities. A 1-mile loop trail, at an approximate elevation of 2200 feet, circles the lake and meanders through the surrounding Appalachian hardwoods and pines and some rhododendron thickets."
-    },
-    {
-      "id": 11,
-      "name": "The Cascades",
-      "difficulty": "Intermediate",
-      "image_url": "https://gohikevirginia.com/wp-content/uploads/2020/10/Cascades-Falls-View-One-Feature.jpg",
-      "distance": "53.8  ",
-      "location_url": "https://www.google.com/maps/search/The+Cascades+Trailhead%2C+Pembroke%2C+VA",
-      "description": "The Cascades Trail, a 4-mile loop trail in Pembroke, Virginia, leads to the 66-foot Cascades Falls, offering scenic views of Little Stony Creek and a mix of rocky and easier terrain with stone steps, walls, and bridges. "
-    },
-    {
-      "id": 12,
-      "name": "Devils Marbleyard",
-      "difficulty": "Intermediate",
-      "image_url": "https://gohikevirginia.com/wp-content/uploads/2020/12/Devils-Marbleyard-Top-Views-Feature.jpg",
-      "distance": "47.5  ",
-      "location_url": "https://www.google.com/maps/dir//Devil's+Marbleyard+Trailhead",
-      "description": "The Devil's Marbleyard hike, a 3.3-mile out-and-back trail in the James River Face Wilderness, features a large boulder field and is considered challenging, offering rock scrambling and views. "
-    },
-    {
-      "id": 13,
-      "name": "The Roanoke Star Trail",
-      "difficulty": "Intermediate",
-      "image_url": "https://assets.simpleviewinc.com/simpleview/image/upload/q_75/v1/crm/roanoke/DSC_0094-custom_1DD96E4A-B822-8D7F-9FA3CDC18652984D-1dd96beb0d3e79b_1dd986b1-9cd6-c510-8b1fd521c3fc9ddf.jpg",
-      "distance": "13.4  ",
-      "location_url": "https://www.google.com/maps/dir//The+Roanoke+Star+Trailhead",
-      "description": "The Star Trail in Roanoke, Virginia, is a popular 1.7-mile hiking trail that climbs Mill Mountain, offering breathtaking views of the city and the Blue Ridge Mountains, and culminates at the iconic Roanoke Star. "
-    },
-    {
-      "id": 14,
-      "name": "Chestnut Loop Trail",
-      "difficulty": "Beginner",
-      "image_url": "https://www.alltrails.com/_next/image?url=https%3A%2F%2Fimages.alltrails.com%2FeyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvNzU3NjgzODIvMDkyYjVhMzgxODg4YjA5MWVlNWJiNWRiYjQzN2MxMjIuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJ3ZWJwIiwicmVzaXplIjp7IndpZHRoIjoxMDgwLCJoZWlnaHQiOjcwMCwiZml0IjoiY292ZXIifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0%3D&w=3840&q=75",
-      "distance": "15.4  ",
-      "location_url": "https://www.google.com/maps/dir//Chestnut+Loop+Trailhead",
-      "description": "The Chestnut Ridge Trail, a 5.4-mile loop, is an easy-to-moderate hike through a shaded forest, offering a serene atmosphere and views of the Blue Ridge Parkway"
-    }
-  ]
-  
+  },
+  {
+    "id": 6,
+    "name": "Sharp Top",
+    "difficulty": "Intermediate",
+    "image_url": "https://gohikevirginia.com/wp-content/uploads/2020/10/Sharp-Top-Summit-Abbott-Lake-Views.jpg",
+    "distance": "37.8  ",
+    "location_url": "https://www.google.com/maps/search/Sharp+Top+Trailhead%2C+Bedford%2C+VA",
+    "description": "The Sharp Top Mountain trail is a popular, 3-mile roundtrip hike in the Peaks of Otter area of Virginia, known for its strenuous climb to a summit with 360-degree views, and includes sections of stairs and rockier terrain"
+  },
+  {
+    "id": 7,
+    "name": "Buffalo Mountain",
+    "difficulty": "Intermediate",
+    "image_url": "https://thehoppyhikers.com/wp-content/uploads/2022/03/buffalo077.jpeg",
+    "distance": "58.8  ",
+    "location_url": "https://www.google.com/maps/search/Buffalo+Mountain+Trailhead%2C+Floyd%2C+VA",
+    "description": "Buffalo Mountain, part of the Buffalo Mountain Natural Area Preserve, features a unique ecosystem with sub-alpine vegetation, magnesium-rich soils, and windswept balds, accessible via a steep, moderately graded one-mile trail leading to a peak of 3,971 feet"
+  },
+  {
+    "id": 8,
+    "name": "Murray Run Greenway",
+    "difficulty": "Beginner",
+    "image_url": "https://www.playroanoke.com/wp-content/uploads/2017/02/FishburnParkFallLeaves-288.jpg",
+    "distance": "5.9  ",
+    "location_url": "https://www.google.com/maps/search/Murray+Run+Greenway+Trailhead%2C+Roanoke%2C+VA",
+    "description": "The Murray Run Greenway is a 1.9-mile neighborhood trail in Roanoke, VA, connecting five schools and three parks, featuring a cinder surface trail, commemorative trees, and a bridge with views of a rain garden. "
+  },
+  {
+    "id": 9,
+    "name": "Roaring Run",
+    "difficulty": "Beginner",
+    "image_url": "https://gohikevirginia.com/wp-content/uploads/2020/10/Roaring-Run-Falls-Upper-Overlook-View.jpg",
+    "distance": "39.7  ",
+    "location_url": "https://www.google.com/maps/search/Roaring+Run+Trailhead%2C+Eagle+Rock%2C+VA",
+    "description": "Roaring Run is a popular get-away for escaping the summer heat. It features shady picnic spots, a native trout stream and a 1 ½ -mile scenic loop trail that follows Roaring Run Creek to a cascading waterfall."
+  },
+  {
+    "id": 10,
+    "name": "Pandapas Pond",
+    "difficulty": "Beginner",
+    "image_url": "https://assets.simpleviewinc.com/simpleview/image/upload/crm/virginia/41987788_1bd6b783-5056-a36a-07262559e7a50ae5.jpg",
+    "distance": "39.5   ",
+    "location_url": "https://www.google.com/maps/search/Pandapas+Pond+Trailhead%2C+Blacksburg%2C+VA",
+    "description": "Pandapas Pond offers an 8-acre manmade pond that provides fishing, hiking, flat-water canoeing, and picnicking opportunities. A 1-mile loop trail, at an approximate elevation of 2200 feet, circles the lake and meanders through the surrounding Appalachian hardwoods and pines and some rhododendron thickets."
+  },
+  {
+    "id": 11,
+    "name": "The Cascades",
+    "difficulty": "Intermediate",
+    "image_url": "https://gohikevirginia.com/wp-content/uploads/2020/10/Cascades-Falls-View-One-Feature.jpg",
+    "distance": "53.8  ",
+    "location_url": "https://www.google.com/maps/search/The+Cascades+Trailhead%2C+Pembroke%2C+VA",
+    "description": "The Cascades Trail, a 4-mile loop trail in Pembroke, Virginia, leads to the 66-foot Cascades Falls, offering scenic views of Little Stony Creek and a mix of rocky and easier terrain with stone steps, walls, and bridges. "
+  },
+  {
+    "id": 12,
+    "name": "Devils Marbleyard",
+    "difficulty": "Intermediate",
+    "image_url": "https://gohikevirginia.com/wp-content/uploads/2020/12/Devils-Marbleyard-Top-Views-Feature.jpg",
+    "distance": "47.5  ",
+    "location_url": "https://www.google.com/maps/dir//Devil's+Marbleyard+Trailhead",
+    "description": "The Devil's Marbleyard hike, a 3.3-mile out-and-back trail in the James River Face Wilderness, features a large boulder field and is considered challenging, offering rock scrambling and views. "
+  },
+  {
+    "id": 13,
+    "name": "The Roanoke Star Trail",
+    "difficulty": "Intermediate",
+    "image_url": "https://assets.simpleviewinc.com/simpleview/image/upload/q_75/v1/crm/roanoke/DSC_0094-custom_1DD96E4A-B822-8D7F-9FA3CDC18652984D-1dd96beb0d3e79b_1dd986b1-9cd6-c510-8b1fd521c3fc9ddf.jpg",
+    "distance": "13.4  ",
+    "location_url": "https://www.google.com/maps/dir//The+Roanoke+Star+Trailhead",
+    "description": "The Star Trail in Roanoke, Virginia, is a popular 1.7-mile hiking trail that climbs Mill Mountain, offering breathtaking views of the city and the Blue Ridge Mountains, and culminates at the iconic Roanoke Star. "
+  },
+  {
+    "id": 14,
+    "name": "Chestnut Loop Trail",
+    "difficulty": "Beginner",
+    "image_url": "https://www.alltrails.com/_next/image?url=https%3A%2F%2Fimages.alltrails.com%2FeyJidWNrZXQiOiJhc3NldHMuYWxsdHJhaWxzLmNvbSIsImtleSI6InVwbG9hZHMvcGhvdG8vaW1hZ2UvNzU3NjgzODIvMDkyYjVhMzgxODg4YjA5MWVlNWJiNWRiYjQzN2MxMjIuanBnIiwiZWRpdHMiOnsidG9Gb3JtYXQiOiJ3ZWJwIiwicmVzaXplIjp7IndpZHRoIjoxMDgwLCJoZWlnaHQiOjcwMCwiZml0IjoiY292ZXIifSwicm90YXRlIjpudWxsLCJqcGVnIjp7InRyZWxsaXNRdWFudGlzYXRpb24iOnRydWUsIm92ZXJzaG9vdERlcmluZ2luZyI6dHJ1ZSwib3B0aW1pc2VTY2FucyI6dHJ1ZSwicXVhbnRpc2F0aW9uVGFibGUiOjN9fX0%3D&w=3840&q=75",
+    "distance": "15.4  ",
+    "location_url": "https://www.google.com/maps/dir//Chestnut+Loop+Trailhead",
+    "description": "The Chestnut Ridge Trail, a 5.4-mile loop, is an easy-to-moderate hike through a shaded forest, offering a serene atmosphere and views of the Blue Ridge Parkway"
+  }
+]
