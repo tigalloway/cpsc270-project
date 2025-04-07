@@ -1,6 +1,6 @@
 import { Text } from '@react-navigation/elements';
 import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, TouchableOpacity, useWindowDimensions, View } from 'react-native';
+import { Dimensions, StyleSheet, TouchableOpacity, useWindowDimensions, View } from 'react-native';
 import type { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
 import {Video} from 'react-native-video'
 
@@ -11,6 +11,7 @@ type HomeTabsParamList = {
   SavedHikes: undefined;
 };
 
+const { width, height } = Dimensions.get("window");
 
 export function Home() {
   const navigation = useNavigation<BottomTabNavigationProp<HomeTabsParamList>>();
@@ -63,12 +64,13 @@ export function Home() {
     paddingHorizontal: 20,
     borderRadius: 5,
       },
-   backgroundVideo: {
-    top: 0,
-    right: 0,
-    left: 0,
-    bottom: 0,
-    position: 'absolute',
-    zIndex: 0
-  },
+      backgroundVideo: {
+        height: height,
+        position: "absolute",
+        top: 0,
+        left: 0,
+        alignItems: "stretch",
+        bottom: 0,
+        right: 0
+      }
 });

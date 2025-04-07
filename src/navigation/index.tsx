@@ -92,7 +92,6 @@ const HomeTabs = createBottomTabNavigator({
     },
   },
   options: {
-    headerShown: false,
     tabBarStyle: {display: 'none'}
   }
 });
