@@ -5,7 +5,7 @@ import tree from '../assets/tree-icon.png'
 import savedicon from '../assets/savedicon.png'
 import { Home } from './screens/Home';
 import { SavedHikes } from './screens/SavedHikes';
-import { Hikes } from './screens/Hikes';
+import {HikeList} from './screens/hikesList';
 import { CompletedHikes } from './screens/CompletedHikes';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStaticNavigation, StaticParamList } from '@react-navigation/native';

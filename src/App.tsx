@@ -4,7 +4,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import * as React from 'react';
 import { Navigation } from './navigation';
 import { SafeAreaView, StatusBar } from "react-native";
-import Hikes from "./navigation/screens/Hikes"
+
 
 <StatusBar hidden />
 
