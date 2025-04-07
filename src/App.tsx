@@ -18,8 +18,16 @@ SplashScreen.preventAutoHideAsync();
 
 export function App() {
   return (
-    <SafeAreaView>
-    <Hikes/>
-  </SafeAreaView>
+    <Navigation 
+      linking={{
+        enabled: 'auto',
+        prefixes: [
+
+        ],
+      }}
+      onReady={() => {
+        SplashScreen.hideAsync();
+      }}
+      />
   );
 }
