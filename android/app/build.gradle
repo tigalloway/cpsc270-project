@@ -86,9 +86,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.yourname.yourappname'
+    namespace 'com.callmemaher.cpsc270project'
     defaultConfig {
-        applicationId 'com.yourname.yourappname'
+        applicationId 'com.callmemaher.cpsc270project'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
