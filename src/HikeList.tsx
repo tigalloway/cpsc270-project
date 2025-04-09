@@ -51,6 +51,7 @@ const HikeList: React.FC = () => {
       const completedHikesData = await AsyncStorage.getItem('completedHikes');
       if (completedHikesData) {
         const hikes = JSON.parse(completedHikesData);
+
         const completedIds: Set<number> = new Set(hikes.map((hike: any) => hike.id));
         setCompletedHikes(completedIds);
       }
@@ -72,34 +73,18 @@ const HikeList: React.FC = () => {
                 style={styles.hikeBox}
                 onPress={() => setSelectedHike(hike)} 
               >
-                <Image source={{ uri: hike.image_url }} style={styles.hikeImage} />
-                <Text style={styles.hikeName}>{hike.name}</Text>
-                <Text style={styles.hikeDistance}>Distance: {hike.distance} miles</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-        </>
-      ) : (
-        <View style={styles.hikeDetails}>
-          <TouchableOpacity onPress={() => setSelectedHike(null)} style={styles.backButtonContainer}>
-            <Text style={styles.backButton}>Back to List</Text>
+
+
+          {}
+          <TouchableOpacity
+            onPress={() => saveHike(selectedHike)} //no fuctionality bcz saveHike is not impleneted
+            style={[styles.saveButton,]}
+          >
+            <Text style={styles.saveButtonText}>Save to List</Text>
           </TouchableOpacity>
-
-          <Text style={styles.hikeTitle}>{selectedHike.name}</Text>
-          <Image source={{ uri: selectedHike.image_url }} style={styles.hikeDetailImage} />
-          <Text style={styles.hikeDescription}>{selectedHike.description}</Text>
-          <Text>
-            <Text style={styles.label}>Distance:</Text> {selectedHike.distance}
-          </Text>
-          <Text>
-            <Text style={styles.label}>Difficulty:</Text> {selectedHike.difficulty}
-          </Text>
-
           <TouchableOpacity onPress={() => Linking.openURL(selectedHike.location_url)}>
             <Text style={styles.locationLink}>View on Map</Text>
           </TouchableOpacity>
-
-      
           <TouchableOpacity
             onPress={() => markAsComplete(selectedHike)}
             style={[styles.completeButton, completedHikes.has(selectedHike.id) ? styles.completedButton : null]}
