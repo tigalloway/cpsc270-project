@@ -92,7 +92,6 @@ const HomeTabs = createBottomTabNavigator({
     },
   },
   options: {
-    headerShown: false,
     tabBarStyle: {display: 'none'}
   }
 });
@@ -146,4 +145,3 @@ declare global {
   }
 }
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-

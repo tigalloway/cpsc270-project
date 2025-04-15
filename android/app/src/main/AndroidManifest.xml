@@ -27,6 +27,7 @@
         <data android:scheme="cpsc270project"/>
         <data android:scheme="com.yourname.yourappname"/>
         <data android:scheme="exp+cpsc270-project"/>
+        <data android:scheme="com.callmemaher.cpsc270project"/>
       </intent-filter>
     </activity>
   </application>

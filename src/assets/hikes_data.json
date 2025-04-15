@@ -1,5 +1,5 @@
 [
-    {
+  {
       "id": 1,
       "name": "McAfee's Knob",
       "difficulty": "Advanced",
@@ -24,7 +24,7 @@
       "image_url": "https://res.cloudinary.com/simpleview/image/upload/v1695239016/clients/roanoke/Tinker_Cliffs_Appalachian_Trail_Roanoke_VA_Fall_50_cc00c7f3-7953-493b-913a-ff48dd85edf7.jpg",
       "distance": "17.2  ",
       "location_url": "https://www.google.com/maps/search/Tinker+Cliffs+Trailhead%2C+Catawba%2C+VA",
-      "description":
+      "description": "The cliffs offer 180-degree panoramic views and a hiking experience that will leave you in awe. In addition to the gorgeous views at the summit, the hike along the way will lead you past unique rock formations, wildflowers, rushing streams, and lush forests."
     },
     {
       "id": 4,
@@ -85,7 +85,7 @@
       "id": 10,
       "name": "Pandapas Pond",
       "difficulty": "Beginner",
-      "image_url": "https://gohikevirginia.com/wp-content/uploads/2020/10/Roaring-Run-Falls-Upper-Overlook-View.jpg",
+      "image_url": "https://assets.simpleviewinc.com/simpleview/image/upload/crm/virginia/41987788_1bd6b783-5056-a36a-07262559e7a50ae5.jpg",
       "distance": "39.5   ",
       "location_url": "https://www.google.com/maps/search/Pandapas+Pond+Trailhead%2C+Blacksburg%2C+VA",
       "description": "Pandapas Pond offers an 8-acre manmade pond that provides fishing, hiking, flat-water canoeing, and picnicking opportunities. A 1-mile loop trail, at an approximate elevation of 2200 feet, circles the lake and meanders through the surrounding Appalachian hardwoods and pines and some rhododendron thickets."
@@ -127,4 +127,4 @@
       "description": "The Chestnut Ridge Trail, a 5.4-mile loop, is an easy-to-moderate hike through a shaded forest, offering a serene atmosphere and views of the Blue Ridge Parkway"
     }
   ]
-  
+ 
