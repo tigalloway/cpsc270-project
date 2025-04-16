@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, Linking, Modal, Button } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
+import { useCallback } from 'react';
 import { Rating } from 'react-native-ratings';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import hikesData from './assets/hikes_data.json';
@@ -14,11 +16,10 @@ interface Hike {
   description: string;
 }
 
-
-
 const HikeList: React.FC = () => {
   const [selectedHike, setSelectedHike] = useState<Hike | null>(null);
   const [completedHikes, setCompletedHikes] = useState<Set<number>>(new Set());
+  const [savedHikeIds, setSavedHikeIds] = useState<Set<number>>(new Set());
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [difficultyRating, setDifficultyRating] = useState(0);
   const [experienceRating, setExperienceRating] = useState(0);
@@ -58,8 +59,22 @@ const HikeList: React.FC = () => {
     fetchCompletedHikes();
   }, []);
 
-
-  
+  useFocusEffect(
+    useCallback(() => {
+      const fetchSavedHikes = async () => {
+        const saved = await AsyncStorage.getItem('savedHikes');
+        if (saved) {
+          const savedHikes = JSON.parse(saved);
+          const ids: Set<number> = new Set<number>(savedHikes.map((hike: Hike) => hike.id));
+          setSavedHikeIds(ids);
+        } else {
+          setSavedHikeIds(new Set());
+        }
+      };
+      fetchSavedHikes();
+    }, [])
+  );  
+    
   return (
     <ScrollView style={styles.container}>
       {!selectedHike ? (
@@ -103,16 +118,32 @@ const HikeList: React.FC = () => {
           <TouchableOpacity
             onPress={() => markAsComplete(selectedHike)}
             style={[styles.completeButton, completedHikes.has(selectedHike.id) ? styles.completedButton : null]}
-            disabled={completedHikes.has(selectedHike.id)} // Disable if already completed
+            disabled={completedHikes.has(selectedHike.id)}
           >
             <Text style={styles.completeButtonText}>
               {completedHikes.has(selectedHike.id) ? 'Completed' : 'Mark as Complete'}
             </Text>
           </TouchableOpacity>
+          <TouchableOpacity
+          onPress={async () => {
+          const saved = await AsyncStorage.getItem('savedHikes');
+          const savedHikes = saved ? JSON.parse(saved) : [];
+          const alreadySaved = savedHikes.find((h: Hike) => h.id === selectedHike.id);
+           if (!alreadySaved) {
+            savedHikes.push(selectedHike);
+            await AsyncStorage.setItem('savedHikes', JSON.stringify(savedHikes));
+            setSavedHikeIds((prev) => new Set(prev).add(selectedHike.id));
+           }
+          }}
+          style={[styles.completeButton, { backgroundColor: 'green' }]}>
+          <Text style={styles.completeButtonText}>
+           {savedHikeIds.has(selectedHike.id) ? 'Saved' : 'Save to List'}
+         </Text>
+         </TouchableOpacity>
+
         </View>
       )}
-
-
+      
       <Modal
         visible={modalVisible}
         transparent={true}
