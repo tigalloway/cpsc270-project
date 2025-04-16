@@ -23,7 +23,6 @@ const HikeList: React.FC = () => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [difficultyRating, setDifficultyRating] = useState(0);
   const [experienceRating, setExperienceRating] = useState(0);
-  
 
   const saveHike = async (hike: Hike, difficulty: number, experience: number) => {
     const completedHike = {
@@ -81,8 +80,9 @@ const HikeList: React.FC = () => {
       {!selectedHike ? (
         <>
           <Text style={styles.title}>Local Hikes</Text>
-          <Text style={{color: "orange"}}>*Hikes are sorted by distance</Text>
+          <Text style={{color: "orange"}}>*Hikes are sorted by distance from Roanoke College</Text>
           <Text> </Text>
+          
           <View>
             
 
