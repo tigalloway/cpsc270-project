@@ -3,8 +3,10 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, Linking, M
 import { useFocusEffect } from '@react-navigation/native';
 import { useCallback } from 'react';
 import { Rating } from 'react-native-ratings';
+import HikeFilter from './assets/dropDown';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import hikesData from './assets/hikes_data.json';
+import { Dropdown } from 'react-native-element-dropdown';
 
 interface Hike {
   id: number;
@@ -82,7 +84,8 @@ const HikeList: React.FC = () => {
           <Text style={styles.title}>Local Hikes</Text>
           <Text style={{color: "orange"}}>*Hikes are sorted by distance from Roanoke College</Text>
           <Text> </Text>
-          
+          <Text>Show hikes by difficulty:</Text>
+          <HikeFilter></HikeFilter>
           <View>
             
 
