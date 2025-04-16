@@ -41,44 +41,44 @@ export function Home() {
 
 const styles = StyleSheet.create({
   backgroundImage: {
-    flex: 1, // Ensures the image fills the screen
-    justifyContent: 'center', // Centers content vertically in the background
+    flex: 1, 
+    justifyContent: 'center', 
     width: width,
     height: height,
   },
   overlay: {
     flex: 1,
-    justifyContent: 'center', // Center content vertically in the overlay
-    alignItems: 'center', // Center content horizontally in the overlay
-    backgroundColor: 'rgba(0, 0, 0, 0.4)', // Semi-transparent overlay (black with 40% opacity)
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    backgroundColor: 'rgba(0, 0, 0, 0.4)', 
     padding: 20,
   },
   container: {
-    flex: 1, // Takes up all available space
-    justifyContent: 'center', // Centers content vertically
-    alignItems: 'center', // Centers content horizontally
+    flex: 1, 
+    justifyContent: 'center',
+    alignItems: 'center', 
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 10,
-    color: '#FFFFFF', // White text for contrast against the overlay
+    color: '#FFFFFF', 
   },
   subtitle: {
     fontSize: 16,
     textAlign: 'center',
-    marginBottom: 40, // Adjusted space for button
-    color: '#FFFFFF', // White text for contrast against the overlay
+    marginBottom: 40, 
+    color: '#FFFFFF', 
   },
   button: {
-    backgroundColor: '#228B22', // Forest Green color
+    backgroundColor: '#228B22', 
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
   },
   buttonText: {
-    color: '#fff', // White text inside button
+    color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
   },
