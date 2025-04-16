@@ -23,6 +23,7 @@ const HikeList: React.FC = () => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [difficultyRating, setDifficultyRating] = useState(0);
   const [experienceRating, setExperienceRating] = useState(0);
+  
 
   const saveHike = async (hike: Hike, difficulty: number, experience: number) => {
     const completedHike = {
@@ -80,8 +81,15 @@ const HikeList: React.FC = () => {
       {!selectedHike ? (
         <>
           <Text style={styles.title}>Local Hikes</Text>
+          <Text style={{color: "orange"}}>*Hikes are sorted by distance</Text>
+          <Text> </Text>
+          <View>
+            
+
+          </View>
           <View style={styles.hikeGrid}>
-            {hikesData.map((hike: Hike) => (
+            {[...hikesData].sort((first, last) => Number(first.distance) - Number(last.distance))
+            .map((hike: Hike) => (
               <TouchableOpacity
                 key={hike.id}
                 style={styles.hikeBox}
@@ -89,7 +97,7 @@ const HikeList: React.FC = () => {
               >
                 <Image source={{ uri: hike.image_url }} style={styles.hikeImage} />
                 <Text style={styles.hikeName}>{hike.name}</Text>
-                <Text style={styles.hikeDistance}>Distance: {hike.distance} miles</Text>
+                <Text style={styles.hikeDistance}>Distance from RC: {hike.distance} miles</Text>
               </TouchableOpacity>
             ))}
           </View>
@@ -104,7 +112,7 @@ const HikeList: React.FC = () => {
           <Image source={{ uri: selectedHike.image_url }} style={styles.hikeDetailImage} />
           <Text style={styles.hikeDescription}>{selectedHike.description}</Text>
           <Text>
-            <Text style={styles.label}>Distance:</Text> {selectedHike.distance}
+            <Text style={styles.label}>Distance from RC:</Text> {selectedHike.distance}
           </Text>
           <Text>
             <Text style={styles.label}>Difficulty:</Text> {selectedHike.difficulty}
