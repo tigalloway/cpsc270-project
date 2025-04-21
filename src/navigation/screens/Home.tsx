@@ -43,9 +43,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1, 
     justifyContent: 'center', 
-
     width: '100%',
-
     height: height,
     
   },

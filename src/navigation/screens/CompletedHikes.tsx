@@ -3,6 +3,7 @@ import { Dimensions, StyleSheet, View, Text, FlatList, Image } from 'react-nativ
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'; 
 import ProgressBar from 'react-native-progress/Bar';
+import Confetti from 'react-confetti'
 
 interface CompletedHike {
   id: number;
@@ -49,14 +50,15 @@ export function CompletedHikes() {
   );
 
   const progress = completedHikes.length/14; 
-  const width = Dimensions.get("window");
+  const {width, height} = Dimensions.get("window");
+  
   return (
     <View style={styles.container}>
       
       <Text style={styles.header}>Completed Hikes</Text>
       <Text style={styles.progressText}>You have completed {Math.round(progress*100)}% of the hikes!</Text>
     {/* <View style={styles.progcontainer}> */}
-     <ProgressBar width={width} progress={progress} color="#4caf50" />
+     <ProgressBar width={width} progress={progress} color="green"  />
      <Text style={styles.underBar}>{completedHikes.length} out of 14</Text>
      {/* </View> */}
     
@@ -69,9 +71,15 @@ export function CompletedHikes() {
           renderItem={renderHike}
         />
       )}
+      <Confetti
+        run={completedHikes.length === 14}
+        width={width}
+        height={height}
+      />
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -150,4 +158,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
     color: '#888',
   },
+  progressBar: {
+    justifyContent:"center",
+    alignItems:"center",
+  }
+
 });
