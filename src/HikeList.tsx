@@ -6,7 +6,7 @@ import { Rating } from 'react-native-ratings';
 import HikeFilter from './assets/dropDown';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import hikesData from './assets/hikes_data.json';
-import { Dropdown } from 'react-native-element-dropdown';
+
 
 interface Hike {
   id: number;

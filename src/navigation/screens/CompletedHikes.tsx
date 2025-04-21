@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, FlatList, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'; 
+import ProgressBar from 'react-native-progress/Bar';
 
 interface CompletedHike {
   id: number;
@@ -23,6 +24,7 @@ export function CompletedHikes() {
       const hikes = JSON.parse(completedHikesData);
       setCompletedHikes(hikes);
     }
+    
   };
 
   
@@ -45,9 +47,15 @@ export function CompletedHikes() {
     </View>
   );
 
+  const progress = completedHikes.length/14; 
+
   return (
     <View style={styles.container}>
+      
       <Text style={styles.header}>Completed Hikes</Text>
+      <Text style={styles.progressText}>You have completed {Math.round(progress*100)}% of the hikes!</Text>
+
+      <ProgressBar style={styles.progress} progress={progress} color="#4caf50" />
       {completedHikes.length === 0 ? (
         <Text style={styles.noHikes}>You have no completed hikes yet!</Text>
       ) : (
@@ -66,6 +74,18 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     backgroundColor: '#fff',
+  },
+  progressText: {
+    fontSize: 16,
+    color: '#555',
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  progress:{
+    width: '98%',
+    borderRadius: 5,
+    backgroundColor: '#e0e0e0',
+    margin: 10,
   },
   header: {
     fontSize: 24,
