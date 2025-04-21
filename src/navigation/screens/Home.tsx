@@ -17,7 +17,7 @@ export function Home() {
 
   return (
     <ImageBackground
-      source={require('../../assets/background.png')}
+      source={require('../../assets/Background2.jpg')}
       style={styles.backgroundImage}
       resizeMode="cover"
     >

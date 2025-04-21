@@ -25,6 +25,7 @@ const HikeList: React.FC = () => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [difficultyRating, setDifficultyRating] = useState(0);
   const [experienceRating, setExperienceRating] = useState(0);
+  const [hikeDifficulty, setHikeDifficulty] = useState<number | null>(0);
 
   const saveHike = async (hike: Hike, difficulty: number, experience: number) => {
     const completedHike = {
@@ -85,13 +86,23 @@ const HikeList: React.FC = () => {
           <Text style={{color: "orange"}}>*Hikes are sorted by distance from Roanoke College</Text>
           <Text> </Text>
           <Text>Show hikes by difficulty:</Text>
-          <HikeFilter></HikeFilter>
+          <HikeFilter 
+            selected={hikeDifficulty}
+            onChange={(val) => setHikeDifficulty(val)}></HikeFilter>
           <View>
             
 
           </View>
           <View style={styles.hikeGrid}>
-            {[...hikesData].sort((first, last) => Number(first.distance) - Number(last.distance))
+            {[...hikesData].filter((hike) => {
+              if (hikeDifficulty === 0) return true;
+              const difficultyMap: { [key: string]: number } = {
+                Beginner: 1,
+                Intermediate: 2,
+                Advanced: 3,
+              };
+              return difficultyMap[hike.difficulty] === hikeDifficulty;
+            }).sort((first, last) => Number(first.distance) - Number(last.distance))
             .map((hike: Hike) => (
               <TouchableOpacity
                 key={hike.id}

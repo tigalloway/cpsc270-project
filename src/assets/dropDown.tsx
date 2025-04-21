@@ -3,12 +3,19 @@ import { View, StyleSheet } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 
 const difficultyOptions = [
-  { label: 'Beginner', value: 'beginner' },
-  { label: 'Intermediate', value: 'intermediate' },
-  { label: 'Advanced', value: 'advanced' },
+  { label: 'None', value: 0},
+  { label: 'Beginner', value: 1 },
+  { label: 'Intermediate', value: 2 },
+  { label: 'Advanced', value: 3 },
+
 ];
 
-const HikeFilter = () => {
+type FilterProps ={
+  selected: number | null;
+  onChange: (value: number) => void;
+};
+
+const HikeFilter: React.FC<FilterProps> = ({selected, onChange}) => {
   return (
     <View style={styles.container}>
       <Dropdown
@@ -19,8 +26,8 @@ const HikeFilter = () => {
         labelField="label"
         valueField="value"
         placeholder="Select Difficulty"
-        value={null} // no state handling yet
-        onChange={() => {}}
+        value={selected}
+        onChange={(item) => onChange(item.value)}
       />
     </View>
   );
