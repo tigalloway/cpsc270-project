@@ -6,6 +6,7 @@ import { Rating } from 'react-native-ratings';
 import HikeFilter from './assets/dropDown';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import hikesData from './assets/hikes_data.json';
+import { TextInput } from 'react-native-gesture-handler';
 
 
 interface Hike {
@@ -25,19 +26,23 @@ const HikeList: React.FC = () => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [difficultyRating, setDifficultyRating] = useState(0);
   const [experienceRating, setExperienceRating] = useState(0);
+
   const [hikeDifficulty, setHikeDifficulty] = useState<number | null>(0);
 
-  const saveHike = async (hike: Hike, difficulty: number, experience: number) => {
+  const [userExperience, setUserExperience] = useState('');
+
+
+  const completeHike = async (hike: Hike, difficulty: number, experience: number) => {
     const completedHike = {
       ...hike,
       difficultyRating: difficulty,
       experienceRating: experience,
+      userExperience: userExperience,
     };
 
-    const savedHikes = await AsyncStorage.getItem('completedHikes');
-    const hikes = savedHikes ? JSON.parse(savedHikes) : [];
-    hikes.push(completedHike);
-    await AsyncStorage.setItem('completedHikes', JSON.stringify(hikes));
+    const completedHikes = JSON.parse(await AsyncStorage.getItem('completedHikes') || '[]');
+    completedHikes.push(completedHike);
+    await AsyncStorage.setItem('completedHikes', JSON.stringify(completedHikes));
 
     setCompletedHikes((prevState) => new Set([...prevState, hike.id]));
   };
@@ -54,8 +59,8 @@ const HikeList: React.FC = () => {
     const fetchCompletedHikes = async () => {
       const completedHikesData = await AsyncStorage.getItem('completedHikes');
       if (completedHikesData) {
-        const hikes = JSON.parse(completedHikesData);
-        const completedIds: Set<number> = new Set(hikes.map((hike: any) => hike.id));
+        const completedHikes = JSON.parse(completedHikesData);
+        const completedIds: Set<number> = new Set(completedHikes.map((hike: any) => hike.id));
         setCompletedHikes(completedIds);
       }
     };
@@ -77,6 +82,9 @@ const HikeList: React.FC = () => {
       fetchSavedHikes();
     }, [])
   );  
+
+  
+  
     
   return (
     <ScrollView style={styles.container}>
@@ -188,13 +196,24 @@ const HikeList: React.FC = () => {
             startingValue={experienceRating}
             imageSize={30}
           />
+          <Text style={styles.modalText}> Describe your experience: </Text>
+          <TextInput
+          style={styles.textInput}
+          placeholder='share your experience!'
+          multiline={true}
+          value={userExperience}
+          onChangeText={setUserExperience}
+          />
           <Button
             title="Save Rating"
             onPress={() => {
               if (selectedHike) {
-                saveHike(selectedHike, difficultyRating, experienceRating);
+                completeHike(selectedHike, difficultyRating, experienceRating);
                 setModalVisible(false);
                 setSelectedHike(null);
+                setDifficultyRating(0);
+                setExperienceRating(0);
+                setUserExperience('')
               }
             }}
           />
@@ -292,7 +311,7 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
   modal: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -307,6 +326,17 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: 'white',
     marginBottom: 10,
+  },
+  textInput: {
+    height: 150,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 20,
+    textAlignVertical: 'top', 
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 16, 
   },
 });
 

@@ -12,6 +12,7 @@ interface CompletedHike {
   distance: string;
   description: string;
   image_url: string;
+  userExperience: string,
 }
 
 export function CompletedHikes() {
@@ -42,7 +43,7 @@ export function CompletedHikes() {
       <Text style={styles.hikeInfo}>
         Difficulty: {item.difficultyRating} | Experience: {item.experienceRating}
       </Text>
-      <Text style={styles.hikeDescription}>{item.description}</Text>
+      <Text style={styles.hikeDescription}>{item.userExperience}</Text>
       <Text style={styles.hikeDistance}>Distance: {item.distance} miles</Text>
     </View>
   );

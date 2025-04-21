@@ -43,8 +43,11 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1, 
     justifyContent: 'center', 
-    width: width,
+
+    width: '100%',
+
     height: height,
+    
   },
   overlay: {
     flex: 1,
@@ -55,7 +58,9 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1, 
+
     justifyContent: 'center',
+
     alignItems: 'center', 
   },
   title: {
@@ -78,7 +83,10 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   buttonText: {
+
     color: '#fff',
+
+
     fontSize: 18,
     fontWeight: 'bold',
   },
