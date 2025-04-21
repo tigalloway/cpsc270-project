@@ -3,12 +3,10 @@ import { Asset } from 'expo-asset';
 import * as SplashScreen from 'expo-splash-screen';
 import * as React from 'react';
 import { Navigation } from './navigation';
-import { SafeAreaView, StatusBar } from "react-native";
-import Hikes from "./navigation/screens/Hikes"
+import { SafeAreaView, StatusBar } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler'; 
 
-<StatusBar hidden />
-
-
+<StatusBar hidden />;
 
 Asset.loadAsync([
   ...NavigationAssets,
@@ -18,17 +16,19 @@ SplashScreen.preventAutoHideAsync();
 
 export function App() {
   return (
-    <Navigation
-    linking={{
-      enabled: 'auto',
-      prefixes: [
-        // Change the scheme to match your app's scheme defined in app.json
-        'helloworld://',
-      ],
-    }}
-    onReady={() => {
-      SplashScreen.hideAsync();
-    }}
-  />
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Navigation
+        linking={{
+          enabled: 'auto',
+          prefixes: [
+            // Change the scheme to match your app's scheme defined in app.json
+            'helloworld://',
+          ],
+        }}
+        onReady={() => {
+          SplashScreen.hideAsync();
+        }}
+      />
+    </GestureHandlerRootView>
   );
 }
