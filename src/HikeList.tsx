@@ -6,6 +6,7 @@ import { Rating } from 'react-native-ratings';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import hikesData from './assets/hikes_data.json';
 import { TextInput } from 'react-native-gesture-handler';
+import CompleteHikeModal from './navigation/screens/CompleteHikeModal';
 
 interface Hike {
   id: number;
@@ -148,53 +149,19 @@ const HikeList: React.FC = () => {
 
         </View>
       )}
-      
-      <Modal
-        visible={modalVisible}
-        transparent={true}
-        animationType="slide"
-        onRequestClose={() => setModalVisible(false)}
-      >
-        <View style={styles.modal}>
-          <Text style={styles.modalTitle}>Rate Your Hike</Text>
-          <Text style={styles.modalText}>Difficulty:</Text>
-          <Rating
-            showRating
-            onFinishRating={setDifficultyRating}
-            startingValue={difficultyRating}
-            imageSize={30}
-          />
-          <Text style={styles.modalText}>Experience:</Text>
-          <Rating
-            showRating
-            onFinishRating={setExperienceRating}
-            startingValue={experienceRating}
-            imageSize={30}
-          />
-          <Text style={styles.modalText}> Describe your experience: </Text>
-          <TextInput
-          style={styles.textInput}
-          placeholder='share your experience!'
-          multiline={true}
-          value={userExperience}
-          onChangeText={setUserExperience}
-          />
-          <Button
-            title="Save Rating"
-            onPress={() => {
-              if (selectedHike) {
-                completeHike(selectedHike, difficultyRating, experienceRating);
-                setModalVisible(false);
-                setSelectedHike(null);
-                setDifficultyRating(0);
-                setExperienceRating(0);
-                setUserExperience('')
-              }
-            }}
-          />
-          <Button title="Cancel" onPress={() => setModalVisible(false)} />
-        </View>
-      </Modal>
+        <CompleteHikeModal
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        setDifficultyRating={setDifficultyRating}
+        difficultyRating={difficultyRating}
+        setExperienceRating={setExperienceRating}
+        experienceRating={experienceRating}
+        userExperience={userExperience}
+        setUserExperience={setUserExperience}
+        selectedHike={selectedHike}
+        completeHike={completeHike}
+        setSelectedHike={setSelectedHike}
+      />
     </ScrollView>
   );
 };
@@ -284,34 +251,6 @@ const styles = StyleSheet.create({
     color: 'orange',
     marginTop: 12,
     textDecorationLine: 'underline',
-  },
-  modal: {
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  },
-  modalTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    color: 'white',
-  },
-  modalText: {
-    fontSize: 18,
-    color: 'white',
-    marginBottom: 10,
-  },
-  textInput: {
-    height: 150,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 5,
-    padding: 10,
-    marginBottom: 20,
-    textAlignVertical: 'top', 
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    fontSize: 16, 
   },
 });
 
