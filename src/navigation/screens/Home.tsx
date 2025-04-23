@@ -17,7 +17,7 @@ export function Home() {
 
   return (
     <ImageBackground
-      source={require('../../assets/background.png')}
+      source={require('../../assets/Background2.jpg')}
       style={styles.backgroundImage}
       resizeMode="cover"
     >
@@ -56,7 +56,9 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1, 
-    justifyContent: 'center', 
+
+    justifyContent: 'center',
+
     alignItems: 'center', 
   },
   title: {
@@ -79,7 +81,10 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   buttonText: {
-    color: '#fff', 
+
+    color: '#fff',
+
+
     fontSize: 18,
     fontWeight: 'bold',
   },

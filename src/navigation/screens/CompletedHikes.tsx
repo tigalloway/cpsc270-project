@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, FlatList, Image } from 'react-native';
+import { Dimensions, StyleSheet, View, Text, FlatList, Image } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'; 
+import ProgressBar from 'react-native-progress/Bar';
+import Confetti from 'react-confetti'
 
 interface CompletedHike {
   id: number;
@@ -24,6 +26,7 @@ export function CompletedHikes() {
       const hikes = JSON.parse(completedHikesData);
       setCompletedHikes(hikes);
     }
+    
   };
 
   
@@ -46,9 +49,19 @@ export function CompletedHikes() {
     </View>
   );
 
+  const progress = completedHikes.length/14; 
+  const {width, height} = Dimensions.get("window");
+  
   return (
     <View style={styles.container}>
+      
       <Text style={styles.header}>Completed Hikes</Text>
+      <Text style={styles.progressText}>You have completed {Math.round(progress*100)}% of the hikes!</Text>
+    {/* <View style={styles.progcontainer}> */}
+     <ProgressBar width={width} progress={progress} color="green"  />
+     <Text style={styles.underBar}>{completedHikes.length} out of 14</Text>
+     {/* </View> */}
+    
       {completedHikes.length === 0 ? (
         <Text style={styles.noHikes}>You have no completed hikes yet!</Text>
       ) : (
@@ -58,15 +71,46 @@ export function CompletedHikes() {
           renderItem={renderHike}
         />
       )}
+      <Confetti
+        run={completedHikes.length === 14}
+        width={width}
+        height={height}
+      />
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
     backgroundColor: '#fff',
+  },
+  underBar: {
+    textAlign: 'center', 
+    fontSize: 13,
+    margin: 10,
+  },
+  progressText: {
+    fontSize: 16,
+    color: '#555',
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  progress: {
+     display: 'flex',
+     
+     //background-color: lightgray,
+     padding: 10,
+  },
+  progcontainer:{
+    display: 'flex',
+    width: '98%',
+    margin: 10,
+    // borderRadius: 5,
+    // backgroundColor: '#e0e0e0',
+    // margin: 10,
   },
   header: {
     fontSize: 24,
@@ -114,4 +158,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
     color: '#888',
   },
+  progressBar: {
+    justifyContent:"center",
+    alignItems:"center",
+  }
+
 });
