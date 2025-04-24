@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, Linking, Modal, Button } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { useCallback } from 'react';
-import { Rating } from 'react-native-ratings';
 import HikeFilter from './assets/dropDown';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import hikesData from './assets/hikes_data.json';
-import { TextInput } from 'react-native-gesture-handler';
 import CompleteHikeModal from './navigation/screens/CompleteHikeModal';
-
+import CompleteHikeButton from './navigation/screens/CompleteHikeButton';
+import HikeInfo from './navigation/screens/HikeInfo';
 
 interface Hike {
   id: number;
@@ -127,34 +126,19 @@ const HikeList: React.FC = () => {
         </>
       ) : (
         <View style={styles.hikeDetails}>
-          <TouchableOpacity onPress={() => setSelectedHike(null)} style={styles.backButtonContainer}>
-            <Text style={styles.backButton}>Back to List</Text>
-          </TouchableOpacity>
+          <HikeInfo
+            selectedHike={selectedHike}
+            setSelectedHike={setSelectedHike}
+            distance={selectedHike.distance}
+            difficulty={selectedHike.difficulty}
+            locationUrl={selectedHike.location_url}
+          />
+          <CompleteHikeButton
+              onPress={() => markAsComplete(selectedHike)}
+              isCompleted={completedHikes.has(selectedHike.id)}
+              disabled={completedHikes.has(selectedHike.id)}
+            />
 
-          <Text style={styles.hikeTitle}>{selectedHike.name}</Text>
-          <Image source={{ uri: selectedHike.image_url }} style={styles.hikeDetailImage} />
-          <Text style={styles.hikeDescription}>{selectedHike.description}</Text>
-          <Text>
-            <Text style={styles.label}>Distance from RC:</Text> {selectedHike.distance}
-          </Text>
-          <Text>
-            <Text style={styles.label}>Difficulty:</Text> {selectedHike.difficulty}
-          </Text>
-
-          <TouchableOpacity onPress={() => Linking.openURL(selectedHike.location_url)}>
-            <Text style={styles.locationLink}>View on Map</Text>
-          </TouchableOpacity>
-
-      
-          <TouchableOpacity
-            onPress={() => markAsComplete(selectedHike)}
-            style={[styles.completeButton, completedHikes.has(selectedHike.id) ? styles.completedButton : null]}
-            disabled={completedHikes.has(selectedHike.id)}
-          >
-            <Text style={styles.completeButtonText}>
-              {completedHikes.has(selectedHike.id) ? 'Completed' : 'Mark as Complete'}
-            </Text>
-          </TouchableOpacity>
           <TouchableOpacity
           onPress={async () => {
           const saved = await AsyncStorage.getItem('savedHikes');
