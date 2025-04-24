@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, Linking, Modal, Button } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { useCallback } from 'react';
-import { Rating } from 'react-native-ratings';
 import HikeFilter from './assets/dropDown';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import hikesData from './assets/hikes_data.json';
+import CompleteHikeModal from './navigation/screens/CompleteHikeModal';
+import CompleteHikeButton from './navigation/screens/CompleteHikeButton';
+import HikeInfo from './navigation/screens/HikeInfo';
 import { TextInput } from 'react-native-gesture-handler';
 import SaveButton from './SaveButton';
 import HikeBox from './HikeBox';
-
 
 interface Hike {
   id: number;
@@ -120,85 +121,35 @@ const HikeList: React.FC = () => {
         </>
       ) : (
         <View style={styles.hikeDetails}>
-          <TouchableOpacity onPress={() => setSelectedHike(null)} style={styles.backButtonContainer}>
-            <Text style={styles.backButton}>Back to List</Text>
-          </TouchableOpacity>
-
-          <Text style={styles.hikeTitle}>{selectedHike.name}</Text>
-          <Image source={{ uri: selectedHike.image_url }} style={styles.hikeDetailImage} />
-          <Text style={styles.hikeDescription}>{selectedHike.description}</Text>
-          <Text>
-            <Text style={styles.label}>Distance from RC:</Text> {selectedHike.distance}
-          </Text>
-          <Text>
-            <Text style={styles.label}>Difficulty:</Text> {selectedHike.difficulty}
-          </Text>
-
-          <TouchableOpacity onPress={() => Linking.openURL(selectedHike.location_url)}>
-            <Text style={styles.locationLink}>View on Map</Text>
-          </TouchableOpacity>
-
-      
-          <TouchableOpacity
-            onPress={() => markAsComplete(selectedHike)}
-            style={[styles.completeButton, completedHikes.has(selectedHike.id) ? styles.completedButton : null]}
-            disabled={completedHikes.has(selectedHike.id)}
-          >
-            <Text style={styles.completeButtonText}>
-              {completedHikes.has(selectedHike.id) ? 'Completed' : 'Mark as Complete'}
-            </Text>
-          </TouchableOpacity>
+          <HikeInfo
+            selectedHike={selectedHike}
+            setSelectedHike={setSelectedHike}
+            distance={selectedHike.distance}
+            difficulty={selectedHike.difficulty}
+            locationUrl={selectedHike.location_url}
+          />
+          <CompleteHikeButton
+              onPress={() => markAsComplete(selectedHike)}
+              isCompleted={completedHikes.has(selectedHike.id)}
+              disabled={completedHikes.has(selectedHike.id)}
+            />
           <SaveButton hike={selectedHike} savedHikeIds={savedHikeIds} setSavedHikeIds={setSavedHikeIds} />
 
         </View>
       )}
-      
-      <Modal
-        visible={modalVisible}
-        transparent={true}
-        animationType="slide"
-        onRequestClose={() => setModalVisible(false)}
-      >
-        <View style={styles.modal}>
-          <Text style={styles.modalTitle}>Rate Your Hike</Text>
-          <Text style={styles.modalText}>Difficulty:</Text>
-          <Rating
-            showRating
-            onFinishRating={setDifficultyRating}
-            startingValue={difficultyRating}
-            imageSize={30}
-          />
-          <Text style={styles.modalText}>Experience:</Text>
-          <Rating
-            showRating
-            onFinishRating={setExperienceRating}
-            startingValue={experienceRating}
-            imageSize={30}
-          />
-          <Text style={styles.modalText}> Describe your experience: </Text>
-          <TextInput
-          style={styles.textInput}
-          placeholder='share your experience!'
-          multiline={true}
-          value={userExperience}
-          onChangeText={setUserExperience}
-          />
-          <Button
-            title="Save Rating"
-            onPress={() => {
-              if (selectedHike) {
-                completeHike(selectedHike, difficultyRating, experienceRating);
-                setModalVisible(false);
-                setSelectedHike(null);
-                setDifficultyRating(0);
-                setExperienceRating(0);
-                setUserExperience('')
-              }
-            }}
-          />
-          <Button title="Cancel" onPress={() => setModalVisible(false)} />
-        </View>
-      </Modal>
+        <CompleteHikeModal
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        setDifficultyRating={setDifficultyRating}
+        difficultyRating={difficultyRating}
+        setExperienceRating={setExperienceRating}
+        experienceRating={experienceRating}
+        userExperience={userExperience}
+        setUserExperience={setUserExperience}
+        selectedHike={selectedHike}
+        completeHike={completeHike}
+        setSelectedHike={setSelectedHike}
+      />
     </ScrollView>
   );
 };
@@ -289,45 +240,6 @@ const styles = StyleSheet.create({
     marginTop: 12,
     textDecorationLine: 'underline',
   },
-  modal: {
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  },
-  modalTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    color: 'white',
-  },
-  modalText: {
-    fontSize: 18,
-    color: 'white',
-    marginBottom: 10,
-  },
-  textInput: {
-    height: 150,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 5,
-    padding: 10,
-    marginBottom: 20,
-    textAlignVertical: 'top', 
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    fontSize: 16, 
-  },
 });
 
 export default HikeList;
-
-/*  <TouchableOpacity
-                key={hike.id}
-                style={styles.hikeBox}
-                onPress={() => setSelectedHike(hike)} 
-              >
-                <Image source={{ uri: hike.image_url }} style={styles.hikeImage} />
-                <Text style={styles.hikeName}>{hike.name}</Text>
-                <Text style={styles.hikeDistance}>Distance from RC: {hike.distance} miles</Text>
-              </TouchableOpacity>
-              */
