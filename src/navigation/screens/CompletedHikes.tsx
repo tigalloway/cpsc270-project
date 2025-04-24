@@ -77,9 +77,11 @@ export function CompletedHikes() {
           renderItem={renderHike}
         />
       )}
-      <TouchableOpacity style={styles.clearButton} onPress={clearCompletedHikes}>
-        <Text style={styles.clearButtonText}>Clear Completed Hikes</Text>
-      </TouchableOpacity>
+      {completedHikes.length > 0 && (
+        <TouchableOpacity style={styles.clearButton} onPress={clearCompletedHikes}>
+          <Text style={styles.clearButtonText}>Clear Completed Hikes</Text>
+        </TouchableOpacity>
+      )}
 
       <Confetti
         run={completedHikes.length === 14}
@@ -110,13 +112,10 @@ const styles = StyleSheet.create({
   },
   progress: {
      display: 'flex',
-     
-     //background-color: lightgray,
      padding: 10,
   },
   progcontainer:{
     display: 'flex',
-    //width: '98%',
     margin: 10,
     
   },
@@ -171,13 +170,16 @@ const styles = StyleSheet.create({
     alignItems:"center",
   },
   clearButton: {
-    position: 'absolute',
-    top: 16,
-    right: 16,
-    backgroundColor: 'red',
-    paddingVertical: 10,
+    backgroundColor: '#FF6347', 
+    paddingVertical: 12,
     paddingHorizontal: 20,
-    borderRadius: 5,
+    borderRadius: 8,
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: 20, 
+    left: '50%',
+    transform: [{ translateX: -100 }], 
+    width: 200,
   },
   clearButtonText: {
     color: '#fff',
