@@ -3,7 +3,7 @@ import { Dimensions, StyleSheet, View, Text, FlatList, Image } from 'react-nativ
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'; 
 import ProgressBar from 'react-native-progress/Bar';
-import Confetti from 'react-confetti'
+import Confetti from 'react-confetti';
 
 interface CompletedHike {
   id: number;
@@ -57,10 +57,10 @@ export function CompletedHikes() {
       
       <Text style={styles.header}>Completed Hikes</Text>
       <Text style={styles.progressText}>You have completed {Math.round(progress*100)}% of the hikes!</Text>
-    {/* <View style={styles.progcontainer}> */}
-     <ProgressBar width={width} progress={progress} color="green"  />
+    
+     <ProgressBar width={null} progress={progress} color="green" unfilledColor='rgb(222, 189, 179)'/>
      <Text style={styles.underBar}>{completedHikes.length} out of 14</Text>
-     {/* </View> */}
+     
     
       {completedHikes.length === 0 ? (
         <Text style={styles.noHikes}>You have no completed hikes yet!</Text>
@@ -106,11 +106,9 @@ const styles = StyleSheet.create({
   },
   progcontainer:{
     display: 'flex',
-    width: '98%',
+    //width: '98%',
     margin: 10,
-    // borderRadius: 5,
-    // backgroundColor: '#e0e0e0',
-    // margin: 10,
+    
   },
   header: {
     fontSize: 24,
