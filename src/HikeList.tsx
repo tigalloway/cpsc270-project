@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, Linking, Modal, Button } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { useCallback } from 'react';
-import HikeFilter from './assets/dropDown';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import hikesData from './assets/hikes_data.json';
 import CompleteHikeModal from './navigation/screens/CompleteHikeModal';
@@ -11,6 +10,7 @@ import HikeInfo from './navigation/screens/HikeInfo';
 import { TextInput } from 'react-native-gesture-handler';
 import SaveButton from './SaveButton';
 import HikeBox from './HikeBox';
+import FilterDiv from './FilterDiv'
 
 interface Hike {
   id: number;
@@ -91,33 +91,14 @@ const HikeList: React.FC = () => {
           <Text style={styles.title}>Local Hikes</Text>
           <Text style={{color: "orange"}}>*Hikes are sorted by distance from Roanoke College</Text>
           <Text> </Text>
-          <Text>Show hikes by difficulty:</Text>
-          <HikeFilter 
-            selected={hikeDifficulty}
-            onChange={(val) => setHikeDifficulty(val)}></HikeFilter>
-          <View>
-            
-
-          </View>
-          <View style={styles.hikeGrid}>
-            {[...hikesData].filter((hike) => {
-              if (hikeDifficulty === 0) return true;
-              const difficultyMap: { [key: string]: number } = {
-                Beginner: 1,
-                Intermediate: 2,
-                Advanced: 3,
-              };
-              return difficultyMap[hike.difficulty] === hikeDifficulty;
-            }).sort((first, last) => Number(first.distance) - Number(last.distance))
-            .map((hike: Hike) => (<HikeBox
-                key={hike.id}
-                hike={hike}
-                onSelect={setSelectedHike}
-                isSaved={savedHikeIds.has(hike.id)}
-                isCompleted={completedHikes.has(hike.id)}
-              />
-                ))}
-          </View>
+          <FilterDiv
+            hikesData={hikesData}
+            hikeDifficulty={hikeDifficulty}
+            setHikeDifficulty={setHikeDifficulty}
+            setSelectedHike={setSelectedHike}
+            savedHikeIds={savedHikeIds}
+            completedHikes={completedHikes}
+          />
         </>
       ) : (
         <View style={styles.hikeDetails}>
