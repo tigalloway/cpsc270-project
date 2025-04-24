@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Dimensions, StyleSheet, View, Text, FlatList, Image } from 'react-native';
+import { Dimensions, StyleSheet, View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native'; 
 import ProgressBar from 'react-native-progress/Bar';
@@ -30,6 +30,12 @@ export function CompletedHikes() {
   };
 
   
+
+  const clearCompletedHikes = async () => {
+    await AsyncStorage.removeItem('completedHikes');
+    setCompletedHikes([]);
+  };
+
   useFocusEffect(
     React.useCallback(() => {
       fetchCompletedHikes();
@@ -71,6 +77,10 @@ export function CompletedHikes() {
           renderItem={renderHike}
         />
       )}
+      <TouchableOpacity style={styles.clearButton} onPress={clearCompletedHikes}>
+        <Text style={styles.clearButtonText}>Clear Completed Hikes</Text>
+      </TouchableOpacity>
+
       <Confetti
         run={completedHikes.length === 14}
         width={width}
@@ -159,6 +169,18 @@ const styles = StyleSheet.create({
   progressBar: {
     justifyContent:"center",
     alignItems:"center",
-  }
-
+  },
+  clearButton: {
+    position: 'absolute',
+    top: 16,
+    right: 16,
+    backgroundColor: 'red',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+  },
+  clearButtonText: {
+    color: '#fff',
+    fontSize: 16,
+  },
 });
