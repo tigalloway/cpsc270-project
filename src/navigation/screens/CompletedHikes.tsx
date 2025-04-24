@@ -71,18 +71,11 @@ export function CompletedHikes() {
       {completedHikes.length === 0 ? (
         <Text style={styles.noHikes}>You have no completed hikes yet!</Text>
       ) : (
-        <FlatList
-          data={completedHikes}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={renderHike}
-        />
+          <FlatList
+              data={completedHikes}
+              keyExtractor={(item) => item.id.toString()}
+              renderItem={renderHike} />
       )}
-      {completedHikes.length > 0 && (
-        <TouchableOpacity style={styles.clearButton} onPress={clearCompletedHikes}>
-          <Text style={styles.clearButtonText}>Clear Completed Hikes</Text>
-        </TouchableOpacity>
-      )}
-
       <Confetti
         run={completedHikes.length === 14}
         width={width}
@@ -168,21 +161,5 @@ const styles = StyleSheet.create({
   progressBar: {
     justifyContent:"center",
     alignItems:"center",
-  },
-  clearButton: {
-    backgroundColor: '#FF6347', 
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 8,
-    alignItems: 'center',
-    position: 'absolute',
-    bottom: 20, 
-    left: '50%',
-    transform: [{ translateX: -100 }], 
-    width: 200,
-  },
-  clearButtonText: {
-    color: '#fff',
-    fontSize: 16,
   },
 });
